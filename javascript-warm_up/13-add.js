@@ -1,5 +1,5 @@
-let sum = function addition(x, y){
+function addition(x, y){
     return x + y;
 }
 
-console.log(sum(x,  y));
+console.log(addition(x, y));
