@@ -5,7 +5,7 @@ function numberOfTimes(x, theFunction) {
   }
   
   function xTimes() {
-    console.log("C is fun");
+    console.log("Where I am!");
   }
   
-  numberOfTimes(3, xTimes);
+  numberOfTimes(5, xTimes);
