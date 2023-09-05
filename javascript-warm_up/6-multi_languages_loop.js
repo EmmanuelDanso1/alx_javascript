@@ -1,10 +1,10 @@
-const threeLines = [
+const languages = [
     'C is fun',
     'Python is cool',
     'JavaScript is amazing'
 ];
 
 // using for loop to iterate the array
-for(let i = 0; i < threeLines.length; i++){
-    console.log(threeLines[i]);
+for(const language of languages){
+    console.log(language);
 }
