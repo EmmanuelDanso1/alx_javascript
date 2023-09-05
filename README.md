@@ -1,0 +1,1 @@
+This is a readme file for javascript which emphasize of functions and variables
