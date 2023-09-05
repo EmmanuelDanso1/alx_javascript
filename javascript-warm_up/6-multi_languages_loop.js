@@ -5,6 +5,6 @@ const threeLines = [
 ];
 
 // using for loop to iterate the array
-for(const line of threeLines){
-console.log(line);
+for(let i = 0; i < threeLines.length; i++){
+    console.log(threeLines[i]);
 }
