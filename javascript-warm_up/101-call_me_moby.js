@@ -4,4 +4,4 @@ function numberOfTimes(x, theFunction) {
     }
   }
   
- module.exports = {callMeMoby : this.callMeMoby};
+ module.exports = {callMeMoby : callMeMoby};
