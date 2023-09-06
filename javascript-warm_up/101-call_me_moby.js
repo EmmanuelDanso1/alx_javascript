@@ -4,8 +4,4 @@ function numberOfTimes(x, theFunction) {
     }
   }
   
-  function xTimes() {
-    console.log("Where I am!");
-  }
-  
-  numberOfTimes(5, xTimes);
+ module.exports = {callMeMoby : this.callMeMoby};
