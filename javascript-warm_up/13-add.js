@@ -1,5 +1,5 @@
-function addition(x, y){
-    return x + y;
+function add (a, b){
+    return a + b;
 }
 
-console.log(addition(x, y));
+module.exports = {add : add};
