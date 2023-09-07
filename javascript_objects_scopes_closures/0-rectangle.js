@@ -3,4 +3,4 @@ class Rectangle{
 
 };
 // using an export module
-module.exports = {Rectangle: Rectangle};
+module.exports = Rectangle;
