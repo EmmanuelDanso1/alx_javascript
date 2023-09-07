@@ -7,8 +7,7 @@ class Rectangle{
         }
         // checking f w or h is equal to 0 or not a positive integer, create an empty object
         else{
-            this.width = undefined;
-            this.height = undefined;
+            Object.create(null);
         }
     }
 }
