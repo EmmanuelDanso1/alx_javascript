@@ -15,6 +15,8 @@ req.get(url, {encoding: 'utf-8'}).on('data', (data)=>{
     console.log(data)
 }).on('error', (error)=>{
     console.log(error)
+    process.exit(1);
 }).on('response', response => {
-    console.log('code:', response.statusCode)
+    console.log('code:', response.statusCode);
+    process.exit(1);
 })
