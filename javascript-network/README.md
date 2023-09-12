@@ -1,0 +1,1 @@
+This is a javascript project which shows javascript connectivities, APIs and how to get a request from an API link
