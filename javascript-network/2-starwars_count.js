@@ -34,7 +34,7 @@ async function specificNameWedgeAntillesMovies() {
         return film.characters.includes('https://swapi-api.alx-tools.com/api/people/18/');
       });
 
-      console.log(`Number of movies with Wedge Antilles: ${moviesWithWedgeAntilles.length}`);
+      console.log(`${moviesWithWedgeAntilles.length}`);
     } else {
       console.log('No film data found in the API.');
     }
