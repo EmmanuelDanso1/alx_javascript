@@ -22,6 +22,7 @@ request.get(url, (error, response, body) => {
     console.error(`Error: Status code ${response.statusCode}`);
     process.exit(1);
   }
+  
 
   // Writing the response body to the specified file
   fs.writeFile(filePath, body, 'utf-8', (writeError) => {
@@ -30,6 +31,6 @@ request.get(url, (error, response, body) => {
       process.exit(1);
     }
 
-    console.log(`Contents of ${url} have been saved to ${filePath}`);
+    // console.log(`Contents of ${url} have been saved to ${filePath}`);
   });
 });
