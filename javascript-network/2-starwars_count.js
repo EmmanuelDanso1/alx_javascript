@@ -1,38 +1,47 @@
 #!/usr/bin/node
+// script that prints the number of movies
+// where the character “Wedge Antilles” is present
+const request = require('request');
 
-const req = require('request');
-
+// Checking if the API URL is provided as an argument
 if (process.argv.length !== 3) {
-    console.error('Usage: node 0-statuscode.js <URL>');
-    process.exit(1);
-  }
+  console.error('Usage: node wedge_antilles_movies.js <API_URL>');
+  process.exit(1);
+}
 
-const url = process.argv[2];
+const apiUrl = process.argv[2];
 
-
-const specificMovieId = 18;
-
-req.get(url, (error, response, movie) => {
-    if (error) {
-      console.error('Error:', error.message);
-      process.exit(1);
-    }
-  
-    if (response.statusCode !== 200) {
-      console.error(`Error: Status code ${response.statusCode}`);
-      process.exit(1);
-    }
-    try {
-        const dataResults =JSON.parse(movie).results;
-        console.log(dataResults)
-        const movieWithSpecificId = dataResults.filter((movie) =>
-        movie.characters.includes(`https://swapi-api.alx-tools.com/api/films/${specificMovieId}/`)
-        );
-        console.log(movieWithSpecificId)
-    } catch (parseError) {
-      console.error('Error parsing JSON:', parseError.message);
-      process.exit(1);
-    }
+// Defining a function to fetch data from the API
+function fetchData(url) {
+  return new Promise((resolve, reject) => {
+    request(url, (error, response, body) => {
+      if (error) {
+        reject(error);
+      } else {
+        resolve(JSON.parse(body));
+      }
+    });
   });
+}
 
+// Main function to count the number of movies with Wedge Antilles
+async function specificNameWedgeAntillesMovies() {
+  try {
+    const filmsData = await fetchData(apiUrl);
 
+    if (filmsData.results) {
+      const moviesWithWedgeAntilles = filmsData.results.filter((film) => {
+        return film.characters.includes('https://swapi-api.alx-tools.com/api/people/18/');
+      });
+
+      console.log(`Number of movies with Wedge Antilles: ${moviesWithWedgeAntilles.length}`);
+    } else {
+      console.log('No film data found in the API.');
+    }
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+}
+
+// executng main function
+specificNameWedgeAntillesMovies();
