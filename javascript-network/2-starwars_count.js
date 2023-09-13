@@ -28,6 +28,7 @@ function fetchData(url) {
 async function specificNameWedgeAntillesMovies() {
   try {
     const filmsData = await fetchData(apiUrl);
+    // getting data
 
     if (filmsData.results) {
       const moviesWithWedgeAntilles = filmsData.results.filter((film) => {
