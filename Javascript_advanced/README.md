@@ -1,0 +1,1 @@
+This is a readme file which contains closures, lexical environment and how to access varaibles from there
