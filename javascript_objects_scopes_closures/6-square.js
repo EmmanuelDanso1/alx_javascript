@@ -1,4 +1,4 @@
-// Import the Square class from 5-square.js
+// Importing the Square class from 5-square.js
 const BaseSquare = require('./5-square');
 
 class Square extends BaseSquare {
