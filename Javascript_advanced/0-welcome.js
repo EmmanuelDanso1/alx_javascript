@@ -12,3 +12,4 @@ function welcome(firstName, lastName){
 }
 // calling the welcome function in order to execute the welcome argument
 welcome();
+
