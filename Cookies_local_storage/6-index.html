@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+</head>
+<body>
+    <!-- checking if local storage exist -->
+    <script>
+        if(typeof(Storage)=="undefined"){
+            alert("Sorry, your browser does not support Web storage. Try again with a better one")
+        }else{
+            const availableItems = ["Shampoo", "Soap", "Sponge","Water"];
+            // console.log(availableItems)
+            // adding item to the cart at localstorage
+            function addItemToCart(item){
+                sessionStorage.setItem(item, "true");
+                displayCart();
+
+            }
+        
+
+            // creating the stored and display item
+            function createStore(){
+                // creating unordered list
+                const ul = document.createElement("ul");
+                document.body.appendChild(ul);
+                // creating a list item using forEach
+                availableItems.forEach(item =>{
+                    const li = document.createElement("li");
+                    li.textContent = item;
+                    li.addEventListener("click", ()=> addItemToCart(item));
+                    ul.appendChild(li);
+                })
+            }
+
+            // displaying cart item
+            function displayCart(){
+                const cartItems = Object.keys(sessionStorage);
+                const cartCount = cartItems.length;
+
+                // return nothing if no cart item is found
+                if(cartCount === 0){
+                    return;
+                }
+
+                //  creating a paragraph to store values
+                const p = document.createElement("p");
+                p.textContent = `You previously had ${cartCount} item${cartCount > 1 ? "s" : ""} in your cart`;
+                document.body.appendChild(p);
+            }
+            createStore();
+            displayCart();
+        
+        }
+    </script>
+    
+</body>
+</html>
