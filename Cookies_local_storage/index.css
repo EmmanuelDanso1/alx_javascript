@@ -1,0 +1,53 @@
+body{
+    background-color: white;
+}
+
+h1, h2{
+    /* display: flex;
+    justify-content: center; */
+    /* text-align:  center; */
+    font-size: 50px;
+    font-weight: 700;
+    /* font-family: sans-serif; */
+}
+.form{
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    /* padding-bottom: 10px; */
+    gap:10px;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.form input {
+    padding: 10px;
+    border-radius: 5px solid black;
+    font-size: 20px;
+}
+
+.form button {
+    padding: 8px;
+    border-radius: 8px;
+    border:1px solid grey;
+    font-size: 15px;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+
+}
+
+#display_cookies button {
+
+    padding: 8px;
+    border-radius: 10px ;
+    border:1px solid grey;
+    box-shadow:5px;
+    font-size: 15px;
+    font-weight: 700;
+    text-align: center;
+    margin:5px;
+    cursor: pointer;
+    
+}
+
