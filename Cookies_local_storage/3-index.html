@@ -15,7 +15,7 @@
     }
 </style>
 <body>
-    <div id="login-form" style="display: none;">
+    <div id="login-form" >
         <h2>Login to the website</h2>
         <div class="form">
             <input type="text"  id="firstname" placeholder="Firstname">
@@ -23,11 +23,7 @@
             <button type="submit" onclick="setCookies()">Log me in</button>
 
         </div><br>
-    </div class="display_form">
-        <button onclick="showForm()">Click to show Login form</button>
-        <button onclick="showWelcomeMessageOrForm()">Click to show Welcome message</button>
-
-    </div>
+   
 
     <script>
         // seting cookies
@@ -45,7 +41,9 @@
             // getting cookies
             document.cookies = "firstname=" + firstnameVal +  "; email=" + emailVal + "; expires=" + expiryDate.toUTCString();
              console.log(document.cookies)
-        
+            //  
+             hideForm();
+             showWelcomeMessageOrForm();
 
         }
     
@@ -94,7 +92,7 @@
             if (firstnameCookie) {
                 // User is logged in, show welcome message
                 const body = document.body;
-                body.innerHTML = `<h1>Welcome: ${firstnameCookie} <span class="logout-link" onclick="deleteCookiesAndShowForm()"> (logout)</span></h1>`;
+                body.innerHTML = `<h1>Welcome: ${firstnameCookie} <a href="#" class="logout-link" onclick="deleteCookiesAndShowForm()"> (logout)</a></h1>`;
             } else {
                 // User is not logged in, show the login form
                 showForm();

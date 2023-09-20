@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Example</title>
+    <style>
+        /* Style for the logout link */
+        .logout-link {
+            font-style: italic;
+            font-weight: normal;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="login-form" >
+        <h2>Login Form</h2>
+        <label for="firstname">First Name:</label>
+        <input type="text" id="firstname"><br><br>
+    
+        <label for="email">Email:</label>
+        <input type="text" id="email"><br><br>
+    
+        <button onclick="toggleForm()">Toggle Login Form</button>
+    </div>
+
+    <script>
+        function setCookies() {
+            var firstnameInput = document.getElementById("firstname");
+            var emailInput = document.getElementById("email");
+    
+            // Get the values from the input fields
+            var firstnameValue = firstnameInput.value;
+            var emailValue = emailInput.value;
+    
+            // Calculate the expiration date 10 days from now
+            var expirationDate = new Date();
+            expirationDate.setDate(expirationDate.getDate() + 10);
+    
+            // Set cookies for firstname and email with expiration in 10 days
+            document.cookie = "firstname=" + firstnameValue + "; expires=" + expirationDate.toUTCString();
+            document.cookie = "email=" + emailValue + "; expires=" + expirationDate.toUTCString();
+        }
+
+        function getCookie(name) {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                if (cookie.indexOf(name + '=') === 0) {
+                    return cookie.substring(name.length + 1);
+                }
+            }
+            return "";
+        }
+
+        function toggleForm() {
+            var welcomeMessage = document.getElementById("welcome-message");
+            var loginForm = document.getElementById("login-form");
+
+            if (welcomeMessage) {
+                welcomeMessage.remove();
+            }
+
+            if (loginForm.style.display === "none" || loginForm.style.display === "") {
+                loginForm.style.display = "block";
+            } else {
+                loginForm.style.display = "none";
+            }
+        }
+
+        function deleteCookiesAndShowForm() {
+            document.cookie = "firstname=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            document.cookie = "email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            toggleForm();
+        }
+
+        function showWelcomeMessageOrForm() {
+            var firstnameCookie = getCookie("firstname");
+
+            if (firstnameCookie) {
+                // User is logged in, show welcome message
+                var body = document.body;
+                body.innerHTML = `<h1>Welcome ${firstnameCookie} <span class="logout-link" onclick="deleteCookiesAndShowForm()"> (logout)</span></h1>`;
+            } else {
+                // User is not logged in, toggle the login form
+                toggleForm();
+            }
+        }
+    </script>
+</body>
+</html>
