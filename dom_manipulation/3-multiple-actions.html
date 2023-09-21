@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Creating and Removing Elements</title>
+</head>
+<body>
+  <div id="container"></div>
+
+  <button id="display">Click here</button>
+
+  <script>
+    const someContainer = document.getElementById("container");
+    // creating a paragraph and appending it to the div
+     const p = document.createElement("p");
+     p.textContent = "New paragraph";
+
+     const someText = someContainer.appendChild(p);
+     console.log(someText)
+
+    //  creating a button
+    let paragraphVisibility = true;
+    const buttonElement = document.getElementById("display");
+    buttonElement.addEventListener("click", ()=>{
+        if(paragraphVisibility){
+            p.style.display = "none";
+        }else{
+            p.style.display = "block";
+        }
+        paragraphVisibility = !paragraphVisibility;
+    })
+  </script>
+</body>
+</html>
